@@ -1,0 +1,24 @@
+name: Unit Tests
+
+on:
+    pull_request:
+
+
+jobs:
+    test_unit:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                python-version: ["3.12", "3.13", "3.14"]
+        steps:
+            - name: prepare repo on runner
+              uses: actions/checkout@v5
+
+            - name: prepare python tooling for ${{ matrix.python-version }}
+              uses: actions/setup-python@v6
+              with:
+                # in the best case test against the 
+                # 3-4 most recent major versions of python
+                python-version: ${{ matrix.python-version }}
+
+            - run: python tests.py
