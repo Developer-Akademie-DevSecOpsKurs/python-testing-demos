@@ -56,7 +56,6 @@ class TestTimeCalculation(unittest.TestCase):
 
         # Act
         actual_result = calculate_days(valid_input_date)
-        self.another_thing()
 
         # Assert
         self.assertEqual(actual_result, expected_result)
