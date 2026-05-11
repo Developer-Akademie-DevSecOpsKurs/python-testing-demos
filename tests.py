@@ -46,16 +46,20 @@ class TestTimeCalculation(unittest.TestCase):
 
     def test_success_calculate_days_with_three_days_remaining(self):
         # Arrange
-        current_date = datetime.datetime.now()
-        time_delta_in_days = 3
+        current_date: datetime.datetime = datetime.datetime.now()
+        time_delta_in_days: int = 3
 
         valid_input_date = str(
             current_date + datetime.timedelta(days=time_delta_in_days)
         )
+        print(valid_input_date)
+
         expected_result = time_delta_in_days
+        print(expected_result)
 
         # Act
         actual_result = calculate_days(valid_input_date)
+        print(actual_result)
 
         # Assert
         self.assertEqual(actual_result, expected_result)
