@@ -52,14 +52,11 @@ class TestTimeCalculation(unittest.TestCase):
         valid_input_date = str(
             current_date + datetime.timedelta(days=time_delta_in_days)
         )
-        print(valid_input_date)
 
         expected_result = time_delta_in_days
-        print(expected_result)
 
         # Act
         actual_result = calculate_days(valid_input_date)
-        print(actual_result)
 
         # Assert
         self.assertEqual(actual_result, expected_result)
