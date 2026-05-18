@@ -9,8 +9,6 @@ def calculate_days(target_date: str) -> int:
     assert isinstance(target_date, str), "Invalid input type"
     assert re.match(r"^\d{4}-\d{2}-\d{2}$", target_date), "Invalid date format"
 
-    # do not calculate day here,
-    # pass it as an argument to this function instead.
     current_date: datetime = datetime.date.today()
     target_date: datetime = datetime.date.fromisoformat(target_date)
 
