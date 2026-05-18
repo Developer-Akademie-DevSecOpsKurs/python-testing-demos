@@ -33,7 +33,7 @@ class TestTimeCalculation(unittest.TestCase):
         # Assert
         self.assertEqual(result, expected_result)
         self.assertFalse(result)
-    
+
     def test_failure_calculate_days_with_date_from_past(self):
         # Arrange
         test_input = "2026-04-20"
@@ -46,12 +46,13 @@ class TestTimeCalculation(unittest.TestCase):
 
     def test_success_calculate_days_with_three_days_remaining(self):
         # Arrange
-        current_date: datetime.datetime = datetime.datetime.now()
+        current_date: datetime.date = datetime.date.today()
         time_delta_in_days: int = 3
 
         valid_input_date = str(
             current_date + datetime.timedelta(days=time_delta_in_days)
         )
+
 
         expected_result = time_delta_in_days
 
