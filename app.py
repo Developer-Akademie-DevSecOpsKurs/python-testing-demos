@@ -1,9 +1,13 @@
+
 import argparse
 import datetime
+import re
 
 
 def calculate_days(target_date: str) -> int:
     # calc target_date - current_date
+    assert isinstance(target_date, str), "Invalid input type"
+    assert re.match(r"^\d{4}-\d{2}-\d{2}$", target_date), "Invalid date format"
 
     # do not calculate day here,
     # pass it as an argument to this function instead.
@@ -11,7 +15,6 @@ def calculate_days(target_date: str) -> int:
     target_date: datetime = datetime.date.fromisoformat(target_date)
 
     if target_date < current_date:
-        print("Date cannot be in the past")
         raise ValueError("Date cannot be in the past")
 
     remaining_time = target_date - current_date
@@ -34,8 +37,10 @@ def cli_entrypoint():
     try:
         days = calculate_days(args.target_date)
         print(f"From today to {args.target_date} it is {days} full days remaining")
-    except ValueError:
+    except (AssertionError):
         print("Invalid date format. Use YYYY-MM-DD (example: 2026-04-20).")
+    except (ValueError):
+        print("Date cannot be in the past")
     except Exception as e:
         print("An unexpected error occurred.")
         print(e)
