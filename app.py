@@ -5,6 +5,8 @@ import datetime
 def calculate_days(target_date: str):
     # calc target_date - current_date
     try:
+        # do not calculate day here,
+        # pass it as an argument to this function instead.
         current_date = datetime.datetime.now()
         target_date: datetime = datetime.datetime.fromisoformat(target_date)
 
