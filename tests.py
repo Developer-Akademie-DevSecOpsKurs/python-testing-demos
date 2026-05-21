@@ -51,8 +51,6 @@ class TestTimeCalculation(unittest.TestCase):
         valid_input_date = str(
             current_date + datetime.timedelta(days=time_delta_in_days)
         )
-
-
         expected_result = time_delta_in_days
 
         # Act

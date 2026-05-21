@@ -20,7 +20,6 @@ def calculate_days(target_date: str) -> int:
     return remaining_time.days
 
 
-
 def cli_entrypoint():
     parser = argparse.ArgumentParser(
         description="Calculate remaining days until a target date."
