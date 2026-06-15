@@ -3,11 +3,14 @@ import datetime
 import re
 
 
-def calculate_weeks(target_date: str) -> float:
-    # TODO: implement this
-    # calc target_date - current_date
+def _validate_date_inputs(target_date: str | None):
     assert isinstance(target_date, str), "Invalid input type"
     assert re.match(r"^\d{4}-\d{2}-\d{2}$", target_date), "Invalid date format"
+
+
+def calculate_weeks(target_date: str) -> float:
+    # TODO: implement this
+    _validate_date_inputs(target_date)
 
     current_date: datetime.date = datetime.date.today()
     target_date: datetime.date = datetime.date.fromisoformat(target_date)
@@ -20,9 +23,7 @@ def calculate_weeks(target_date: str) -> float:
 
 
 def calculate_days(target_date: str) -> int:
-    # calc target_date - current_date
-    assert isinstance(target_date, str), "Invalid input type"
-    assert re.match(r"^\d{4}-\d{2}-\d{2}$", target_date), "Invalid date format"
+    _validate_date_inputs(target_date)
 
     current_date: datetime.date = datetime.date.today()
     target_date: datetime.date = datetime.date.fromisoformat(target_date)
@@ -36,9 +37,7 @@ def calculate_days(target_date: str) -> int:
 
 
 def calculate_hours(target_date: str) -> float:
-    # calc target_date - current_date
-    assert isinstance(target_date, str), "Invalid input type"
-    assert re.match(r"^\d{4}-\d{2}-\d{2}$", target_date), "Invalid date format"
+    _validate_date_inputs(target_date)
 
     current_date: datetime.date = datetime.date.today()
     target_date: datetime.date = datetime.date.fromisoformat(target_date)
@@ -51,9 +50,7 @@ def calculate_hours(target_date: str) -> float:
 
 
 def calculate_seconds(target_date: str) -> float:
-    # calc target_date - current_date
-    assert isinstance(target_date, str), "Invalid input type"
-    assert re.match(r"^\d{4}-\d{2}-\d{2}$", target_date), "Invalid date format"
+    _validate_date_inputs(target_date)
 
     current_date: datetime.date = datetime.date.today()
     target_date: datetime.date = datetime.date.fromisoformat(target_date)
